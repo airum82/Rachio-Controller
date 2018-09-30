@@ -40,17 +40,20 @@ class App extends Component {
 
   render() {
     const { devices } = this.state.userInfo
-    return this.state.isLoading ? 
-    (
+    return (
       <div className="main">
-        <h1>Retrieving Devices Now</h1>
-        <img src={sprinklers} alt="moving sprinklers to watch while we fetch your content" />
+        { this.state.isLoading ?
+          <div className="loading">
+          <h1>Retrieving Devices Now</h1>
+          <img src={sprinklers} alt="moving sprinklers to watch while we fetch your content" />
+          </div> 
+          :
+          <div className="main-display">
+            <h1>Hello Arram!</h1 >
+            <DevicesContainer devices={devices} />
+          </div >
+      }
       </div>
-    ) : (
-      <div className="main">
-        <h1>Hello Arram!</h1 >
-        <DevicesContainer devices={devices} />
-      </div >
     )
   }
 }
