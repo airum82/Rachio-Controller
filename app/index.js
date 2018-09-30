@@ -8,7 +8,8 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      userInfo: {}
+      userInfo: {},
+      isLoading: true
     }
   }
 
@@ -20,7 +21,7 @@ class App extends Component {
       }
     })
     .then(response => response.json())
-    .then(result => this.setState({ userInfo: result }))
+    .then(result => this.setState({ userInfo: result, isLoading: false }))
     .then(error => console.log(error))
   }
 
@@ -38,11 +39,17 @@ class App extends Component {
 
   render() {
     const { devices } = this.state.userInfo
-    return (
+    return this.state.isLoading ? 
+    (
       <div>
-        <h1>Hello Arram!</h1>
-        <DevicesContainer devices={devices}/>
+        <h1>Retrieving Devices Now</h1>
+        <img src={ require('./sprinklers.gif')} alt="moving sprinklers to watch while we fetch your content" />
       </div>
+    ) : (
+      <div>
+        <h1>Hello Arram!</h1 >
+        <DevicesContainer devices={devices} />
+      </div >
     )
   }
 }
