@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { apiKey } from '../APIkey';
+import DevicesContainer from './DevicesContainer';
 import './index.css'
 
 class App extends Component {
@@ -36,9 +37,11 @@ class App extends Component {
   }
 
   render() {
+    const { devices } = this.state.userInfo
     return (
       <div>
-        Hello Arram!
+        <h1>Hello Arram!</h1>
+        <DevicesContainer devices={devices}/>
       </div>
     )
   }
