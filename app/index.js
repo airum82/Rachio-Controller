@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { apiKey } from '../APIkey';
+import sprinklers from '../sprinklers.gif'
 import DevicesContainer from './DevicesContainer';
 import './index.css'
 
@@ -43,7 +44,7 @@ class App extends Component {
     (
       <div>
         <h1>Retrieving Devices Now</h1>
-        <img src={ require('./sprinklers.gif')} alt="moving sprinklers to watch while we fetch your content" />
+        <img src={sprinklers} alt="moving sprinklers to watch while we fetch your content" />
       </div>
     ) : (
       <div>
