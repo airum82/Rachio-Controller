@@ -4,9 +4,10 @@ import Device from './Device';
 const DevicesContainer = ({ devices }) => {
   return (
     <div className="devices-container">
-      { devices.map(device => {
+      { devices.map((device, index) => {
           return (
             <Device
+              key={index}
               id={device.id}
               name={device.name}
               zones={device.zones}
