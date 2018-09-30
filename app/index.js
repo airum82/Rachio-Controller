@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { apiKey } from '../APIkey';
 import './index.css'
 
 class App extends Component {
@@ -13,7 +14,7 @@ class App extends Component {
   retrievePersonInfo(id) {
     fetch(`https://api.rach.io/1/public/person/${id}`, {
       headers: {
-        'Authorization': 'Bearer 76980330-8f0b-4659-a341-527364acf134',
+        'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json'
       }
     })
@@ -23,10 +24,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('fire')
     fetch('https://api.rach.io/1/public/person/info',{
       headers: { 
-        'Authorization': 'Bearer 76980330-8f0b-4659-a341-527364acf134',
+        'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json'
       }
     })
@@ -48,5 +48,3 @@ ReactDOM.render(
   <App />,
   document.getElementById('app')
 );
-
-const apiKey = '76980330-8f0b-4659-a341-527364acf134';
