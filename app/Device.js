@@ -27,9 +27,20 @@ class Device extends Component {
   }
 
   selectZone(id) {
-    this.setState({ 
-      selectedZones: [...this.state.selectedZones, id]
+    const isSelected = this.state.selectedZones.some(zone => {
+      return zone === id
     })
+    if(isSelected) {
+      this.setState({
+        selectedZones: this.state.selectedZones.filter(zone => {
+          return zone !== id
+        })
+      })
+    } else {
+      this.setState({ 
+        selectedZones: [...this.state.selectedZones, id]
+      })
+    }
   }
 
   render() {

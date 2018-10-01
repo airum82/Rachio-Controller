@@ -12,6 +12,7 @@ class Zone extends Component {
     this.toggleForm = this.toggleForm.bind(this);
     this.startZone = this.startZone.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   toggleForm() {
@@ -24,13 +25,17 @@ class Zone extends Component {
     })
   }
 
+  handleSelect() {
+    this.props.selectZone(this.props.id)
+    this.setState({ selected: !this.state.selected })
+  }
+
   startZone(event) {
     event.preventDefault();
     const body = {
       id: this.props.id,
       duration: parseInt(this.state.duration)
     };
-    console.log(body)
     fetch('https://api.rach.io/1/public/zone/start', {
       method: 'PUT',
       headers: {
@@ -49,11 +54,16 @@ class Zone extends Component {
     return (
       <div className="zone" id={this.props.id}>
         <h3>{this.props.name}</h3>
-        <img src={this.props.image} alt="picture of this particular zone" />
+        <img 
+          className={this.state.selected ? 'selected' : ''}
+          onClick={this.handleSelect}
+          src={this.props.image} 
+          alt="picture of this particular zone" 
+        />
         <button onClick={this.toggleForm}>
           {this.state.showForm ? 'cancel' : 'start zone'}
         </button>
-        <button onClick={() => this.props.selectZone(this.props.id)}>
+        <button onClick={this.handleSelect}>
           {this.state.selected ? 'unselect' : 'select zone'}
         </button>
        <form 

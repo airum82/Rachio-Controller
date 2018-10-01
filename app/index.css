@@ -5,3 +5,7 @@
 .hidden-form {
   display: none;
 }
+
+.selected {
+  border: 4px solid yellow;
+}
