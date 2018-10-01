@@ -1,5 +1,6 @@
 import React from 'react';
 import Device from './Device';
+import { NavLink } from 'react-router-dom';
 
 const DevicesContainer = ({ devices }) => {
   return (

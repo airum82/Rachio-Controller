@@ -50,7 +50,7 @@ class App extends Component {
           </div> 
           :
           <div className="main-display">
-            <h1>Hello Arram!</h1 >
+            <h1>Hello Arram!</h1>
             <DevicesContainer devices={devices} />
           </div >
       }

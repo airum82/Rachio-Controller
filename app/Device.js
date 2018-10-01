@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ZonesContainer from './ZonesContainer'
 import { apiKey } from '../APIkey';
-import { NavLink, Route, Switch } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import ControlForm from './ControlForm';
 
 class Device extends Component {
