@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ZonesContainer from './ZonesContainer'
 import { apiKey } from '../APIkey';
+import { NavLink, Route, Switch } from 'react-router-dom';
 import ControlForm from './ControlForm';
 
 class Device extends Component {
@@ -30,7 +31,14 @@ class Device extends Component {
       <div className="device" id={this.props.id}>
         <h2>{this.props.name}</h2>
         <ControlForm />
-        <ZonesContainer zones={this.props.zones} />
+        <NavLink to={`/${this.props.id}/zones`}>
+          <h3>View Zones</h3>
+        </NavLink>
+        <Route path={`/${this.props.id}/zones`} render={({ history }) => {
+            return (
+              <ZonesContainer zones={this.props.zones} history={history}/>
+            )
+        }} />
       </div>
     )
   }

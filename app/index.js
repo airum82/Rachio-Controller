@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { apiKey } from '../APIkey';
 import sprinklers from '../sprinklers.gif'
 import DevicesContainer from './DevicesContainer';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './index.css'
 
 class App extends Component {
@@ -59,6 +60,8 @@ class App extends Component {
 }
 
 ReactDOM.render(
-  <App />,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById('app')
 );
