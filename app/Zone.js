@@ -25,21 +25,23 @@ class Zone extends Component {
 
   startZone(event) {
     event.preventDefault();
-    console.log(parseInt(this.state.duration))
+    const body = {
+      id: this.props.id,
+      duration: parseInt(this.state.duration)
+    };
+    console.log(body)
     fetch('https://api.rach.io/1/public/zone/start', {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        id: this.props.id,
-        duration: parseInt(this.state.duration)
-      })
+      body: JSON.stringify(body)
     })
-    .then(response => response.json())
+    .then(response => response.text())
     .then(result => console.log(result))
-    .catch(error => console.log(error.message))
+    .then(() => this.toggleForm())
+    .catch(error => console.log('error',error))
   }
 
   render() {
@@ -49,6 +51,9 @@ class Zone extends Component {
         <img src={this.props.image} alt="picture of this particular zone" />
         <button onClick={this.toggleForm}>
           {this.state.showForm ? 'cancel' : 'start zone'}
+        </button>
+        <button onClick={() => this.props.selectZone(this.props.id)}>
+          select zone
         </button>
        <form 
         className={this.state.showForm ? 'zone-form' : 'hidden-form'}

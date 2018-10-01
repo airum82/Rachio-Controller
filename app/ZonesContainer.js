@@ -1,7 +1,7 @@
 import React from 'react';
 import Zone from './Zone';
 
-const ZonesContainer = ({ zones }) => {
+const ZonesContainer = ({ zones, selectZone }) => {
   return (
     <div className="zones-container">
       { zones.map((zone, index) => {
@@ -11,6 +11,7 @@ const ZonesContainer = ({ zones }) => {
             id={zone.id}
             key={index}
             image={zone.imageUrl}
+            selectZone={selectZone}
           />
         )
       })}

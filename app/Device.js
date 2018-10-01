@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import ZonesContainer from './ZonesContainer'
 import { apiKey } from '../APIkey';
-import { NavLink, Route } from 'react-router-dom';
 import ControlForm from './ControlForm';
 
 class Device extends Component {
   constructor() {
     super();
     this.state = {
-      zoneIdList: []
+      selectedZones: []
     }
     this.runAllZones = this.runAllZones.bind(this);
+    this.selectZone = this.selectZone.bind(this);
   }
 
   runAllZones(zoneIdList, duration, sortOrder) {
@@ -26,13 +26,22 @@ class Device extends Component {
     })
   }
 
+  selectZone(id) {
+    this.setState({ 
+      selectedZones: [...this.state.selectedZones, id]
+    })
+  }
+
   render() {
     return (
       <div className="device" id={this.props.id}>
         <h2>{this.props.name}</h2>
         <button onClick={this.props.history.goBack}>back</button>
         <ControlForm />
-        <ZonesContainer zones={this.props.zones}/>
+        <ZonesContainer 
+          zones={this.props.zones}
+          selectZone={this.selectZone}
+        />
       </div>
     )
   }
