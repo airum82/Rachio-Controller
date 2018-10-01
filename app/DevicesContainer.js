@@ -7,10 +7,10 @@ const DevicesContainer = ({ devices }) => {
     <div className="devices-container">
       { devices.map((device, index) => {
           return (
-            <div className="device-link" key={index}>
+            <div className="devices" key={index}>
               <Route exact path='/' render={() => {
                 return (
-                  <NavLink to={`/${device.id}`}>
+                  <NavLink to={`/${device.id}`} className="device-link">
                     {device.name}
                   </NavLink>
                 )

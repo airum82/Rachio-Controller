@@ -4,7 +4,8 @@ import { apiKey } from '../APIkey';
 import sprinklers from '../sprinklers.gif'
 import DevicesContainer from './DevicesContainer';
 import { BrowserRouter, Route } from 'react-router-dom';
-import './index.css'
+import './index.css';
+import 'normalize.css';
 
 class App extends Component {
   constructor() {
@@ -45,12 +46,12 @@ class App extends Component {
       <div className="main">
         { this.state.isLoading ?
           <div className="loading">
-          <h1>Retrieving Devices Now</h1>
+          <h1 className="title">Retrieving Devices Now</h1>
           <img src={sprinklers} alt="moving sprinklers to watch while we fetch your content" />
           </div> 
           :
           <div className="main-display">
-            <h1>Hello Arram!</h1>
+            <h1 className="title">Hello Arram!</h1>
             <DevicesContainer devices={devices} />
           </div >
       }
