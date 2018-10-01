@@ -19,15 +19,12 @@ class ControlForm extends Component {
     })
   }
 
-  startZone() {
-
-  }
-
   render() {
     return (
       <div className="form">
-        <form>
+        <form onSubmit={(event) => this.props.runAllZones(this.state.duration, event)}>
           <input type="text" name="duration" onChange={(e) => this.handleChange(e)}/>
+          <button>run all zones</button>
         </form>
       </div>
     )
