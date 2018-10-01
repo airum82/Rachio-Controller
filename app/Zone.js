@@ -6,7 +6,8 @@ class Zone extends Component {
     super();
     this.state = {
       showForm: false,
-      duration: 0
+      duration: 0,
+      selected: false
     };
     this.toggleForm = this.toggleForm.bind(this);
     this.startZone = this.startZone.bind(this);
@@ -53,7 +54,7 @@ class Zone extends Component {
           {this.state.showForm ? 'cancel' : 'start zone'}
         </button>
         <button onClick={() => this.props.selectZone(this.props.id)}>
-          select zone
+          {this.state.selected ? 'unselect' : 'select zone'}
         </button>
        <form 
         className={this.state.showForm ? 'zone-form' : 'hidden-form'}
