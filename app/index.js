@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { apiKey } from '../APIkey';
+import sprinklers from '../sprinklers.gif'
+import DevicesContainer from './DevicesContainer';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './index.css'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      userInfo: {}
+      userInfo: {},
+      isLoading: true
     }
   }
 
@@ -19,7 +23,7 @@ class App extends Component {
       }
     })
     .then(response => response.json())
-    .then(result => this.setState({ userInfo: result }))
+    .then(result => this.setState({ userInfo: result, isLoading: false }))
     .then(error => console.log(error))
   }
 
@@ -36,15 +40,28 @@ class App extends Component {
   }
 
   render() {
+    const { devices } = this.state.userInfo
     return (
-      <div>
-        Hello Arram!
+      <div className="main">
+        { this.state.isLoading ?
+          <div className="loading">
+          <h1>Retrieving Devices Now</h1>
+          <img src={sprinklers} alt="moving sprinklers to watch while we fetch your content" />
+          </div> 
+          :
+          <div className="main-display">
+            <h1>Hello Arram!</h1>
+            <DevicesContainer devices={devices} />
+          </div >
+      }
       </div>
     )
   }
 }
 
 ReactDOM.render(
-  <App />,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById('app')
 );
