@@ -7,7 +7,8 @@ class ControlForm extends Component {
       sortOrder: [],
       zones: [],
       type: '',
-      duration: '0'
+      duration: '0',
+      zoneId: ''
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -18,10 +19,16 @@ class ControlForm extends Component {
     })
   }
 
+  startZone() {
+
+  }
+
   render() {
     return (
       <div className="form">
-        <input type="text" name="duration" onChange={(e) => this.handleChange(e)}/>
+        <form>
+          <input type="text" name="duration" onChange={(e) => this.handleChange(e)}/>
+        </form>
       </div>
     )
   }

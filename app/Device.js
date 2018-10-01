@@ -6,7 +6,7 @@ import ControlForm from './ControlForm';
 class Device extends Component {
   constructor() {
     super();
-    this.setState = {
+    this.state = {
       zoneIdList: []
     }
     this.runAllZones = this.runAllZones.bind(this);
