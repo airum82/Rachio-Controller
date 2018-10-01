@@ -7,7 +7,10 @@ class Device extends Component {
   constructor() {
     super();
     this.state = {
-      selectedZones: []
+      selectedZones: [],
+      zoneIdList: this.props.zones.map(zone => {
+        return zone.id
+      })
     }
     this.runAllZones = this.runAllZones.bind(this);
     this.selectZone = this.selectZone.bind(this);
