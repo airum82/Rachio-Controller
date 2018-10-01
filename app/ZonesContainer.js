@@ -1,10 +1,9 @@
 import React from 'react';
 import Zone from './Zone';
 
-const ZonesContainer = ({ zones, history }) => {
+const ZonesContainer = ({ zones }) => {
   return (
     <div className="zones-container">
-      <button onClick={history.goBack}>back</button>
       { zones.map((zone, index) => {
         return (
           <Zone 

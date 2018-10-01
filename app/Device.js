@@ -30,15 +30,9 @@ class Device extends Component {
     return (
       <div className="device" id={this.props.id}>
         <h2>{this.props.name}</h2>
+        <button onClick={this.props.history.goBack}>back</button>
         <ControlForm />
-        <NavLink to={`/${this.props.id}/zones`}>
-          <h3>View Zones</h3>
-        </NavLink>
-        <Route path={`/${this.props.id}/zones`} render={({ history }) => {
-            return (
-              <ZonesContainer zones={this.props.zones} history={history}/>
-            )
-        }} />
+        <ZonesContainer zones={this.props.zones}/>
       </div>
     )
   }
