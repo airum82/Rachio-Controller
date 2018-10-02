@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #2E4057;
+}
 
 #app {
   width: 100%;
@@ -28,19 +34,38 @@
 
 .title {
   margin: 0;
+  background-color: #46ACC2;
+  position: fixed;
+  bottom: 94%;
+  width: 100%;
+
 }
 
 .devices-container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 50vh;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: flex-start;
+  height: 75vh;
+  margin: 6% auto;
+  width: 80%;
+}
+
+.devices {
+  margin: 2%;
+  background-color: #42F2F7;
 }
 
 .device-link {
+  display: block;
   text-decoration: none;
-  border: 1px solid black;
-  color: black;
+  color: #2E4057;
+  font-weight: 700;
+  font-size: 1em;
+  width: 23vw;
+  height: 15vh;
+  line-height: 6em;
 }
 
 .hidden-form {
@@ -55,6 +80,8 @@
   display: flex;
   flex-wrap: wrap;
   width: 80%;
+  height: 80vh;
+  overflow: scroll;
   margin: 0 auto;
   justify-content: space-between;
 
@@ -69,4 +96,8 @@
   height: 50vh;
   margin: 0 auto;
   width: 100%;
+}
+
+.control-form {
+  margin-bottom: 2%;
 }
