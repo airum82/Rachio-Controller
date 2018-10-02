@@ -53,19 +53,21 @@ class Zone extends Component {
   render() {
     return (
       <div className="zone" id={this.props.id}>
-        <h3>{this.props.name}</h3>
+        <h3 className="zone-title">{this.props.name}</h3>
         <img 
           className={this.state.selected ? 'selected' : ''}
           onClick={this.handleSelect}
           src={this.props.image} 
           alt="picture of this particular zone" 
         />
-        <button onClick={this.toggleForm}>
-          {this.state.showForm ? 'cancel' : 'start zone'}
-        </button>
-        <button onClick={this.handleSelect}>
-          {this.state.selected ? 'unselect' : 'select zone'}
-        </button>
+        <div className="zone-buttons">
+          <button onClick={this.toggleForm}>
+            {this.state.showForm ? 'cancel' : 'start zone'}
+          </button>
+          <button onClick={this.handleSelect}>
+            {this.state.selected ? 'unselect' : 'select zone'}
+          </button>
+        </div>
        <form 
         className={this.state.showForm ? 'zone-form' : 'hidden-form'}
         onSubmit={this.startZone}

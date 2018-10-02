@@ -68,7 +68,12 @@ class Device extends Component {
     return (
       <div className="device" id={this.props.id}>
         <h2>{this.props.name}</h2>
-        <button onClick={this.props.history.goBack}>back</button>
+        <button 
+          onClick={this.props.history.goBack}
+          className="back-button"
+        >
+          back
+        </button>
         <ControlForm runAllZones={this.runAllZones}/>
         <ZonesContainer 
           zones={this.props.zones}
