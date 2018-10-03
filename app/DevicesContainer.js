@@ -11,7 +11,7 @@ const DevicesContainer = ({ devices }) => {
               <Route exact path='/' render={() => {
                 return (
                   <NavLink to={`/${device.id}`} className="device-link">
-                    {device.name}
+                    {device.name + ': ' + device.status}
                   </NavLink>
                 )
               }} />

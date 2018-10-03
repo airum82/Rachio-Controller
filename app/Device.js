@@ -67,7 +67,7 @@ class Device extends Component {
   render() {
     return (
       <div className="device" id={this.props.id}>
-        <h2>{this.props.name}</h2>
+        <h2 className="device-title">{this.props.name}</h2>
         <button 
           onClick={this.props.history.goBack}
           className="back-button"

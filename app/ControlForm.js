@@ -22,6 +22,7 @@ class ControlForm extends Component {
   render() {
     return (
       <div className="form">
+        <h2>duration:</h2>
         <form 
           onSubmit={(event) => this.props.runAllZones(this.state.duration, event)}
           className="control-form"

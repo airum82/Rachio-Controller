@@ -41,7 +41,7 @@ class App extends Component {
   }
 
   render() {
-    const { devices } = this.state.userInfo
+    const { devices, fullName } = this.state.userInfo
     return (
       <div className="main">
         { this.state.isLoading ?
@@ -51,7 +51,15 @@ class App extends Component {
           </div> 
           :
           <div className="main-display">
-            <h1 className="title">Hello Arram!</h1>
+            <h1 className="title">Hello {fullName}</h1>
+            <Route 
+              exact path="/"
+              render={() => {
+                return (
+                  <h2 className="devices-intro">Your Devices:</h2>
+                )
+              }}
+            />
             <DevicesContainer devices={devices} />
           </div >
       }
