@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Zone should match snapshot upon initial render 1`] = `
+<div
+  className="zone"
+  id={45}
+>
+  <h3
+    className="zone-title"
+  >
+    zone-4000
+  </h3>
+  <img
+    alt="picture of this particular zone"
+    className=""
+    onClick={[Function]}
+    src=""
+  />
+  <div
+    className="zone-buttons"
+  >
+    <button
+      className="toggle-form"
+      onClick={[Function]}
+    >
+      start zone
+    </button>
+    <button
+      className="select-zone"
+      onClick={[Function]}
+    >
+      select zone
+    </button>
+  </div>
+  <form
+    className="hidden-form"
+    onSubmit={[Function]}
+  >
+    <h4>
+      duration
+    </h4>
+    <input
+      name="duration"
+      onChange={[Function]}
+      type="text"
+    />
+    <button>
+      start
+    </button>
+  </form>
+</div>
+`;

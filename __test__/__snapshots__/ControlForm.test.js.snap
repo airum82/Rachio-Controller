@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ControlForm should match snapshot upon render 1`] = `
+<div
+  className="form"
+>
+  <h2>
+    duration:
+  </h2>
+  <form
+    className="control-form"
+    onSubmit={[Function]}
+  >
+    <input
+      name="duration"
+      onChange={[Function]}
+      type="text"
+    />
+    <button>
+      run all zones
+    </button>
+  </form>
+</div>
+`;
