@@ -12,7 +12,7 @@ module.exports = {
       { test: /\.(js)$/, use: 'babel-loader' },
       { test: /\.css$/, use: [ 'style-loader', 'css-loader'] },
       {
-        test: /\.(pdf|jpg|png|gif|svg|ico)$/,
+        test: /\.(pdf|jpg|png|gif|svg|ico|jpeg)$/,
         use: 'url-loader'
       },
     ]
