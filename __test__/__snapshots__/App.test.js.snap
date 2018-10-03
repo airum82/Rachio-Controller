@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match snapshot upon initial render 1`] = `
+<div
+  className="main"
+>
+  <div
+    className="loading"
+  >
+    <h1
+      className="title"
+    >
+      Retrieving Devices Now
+    </h1>
+    <img
+      alt="moving sprinklers to watch while we fetch your content"
+      src="test-file-stub"
+    />
+  </div>
+</div>
+`;
