@@ -12,6 +12,7 @@ exports[`Device should match snapshot upon initial render 1`] = `
   </h2>
   <button
     className="back-button"
+    onClick={[MockFunction]}
   >
     back
   </button>
@@ -22,8 +23,12 @@ exports[`Device should match snapshot upon initial render 1`] = `
     selectZone={[Function]}
     zones={
       Array [
-        Object {},
-        Object {},
+        Object {
+          "id": "83-b",
+        },
+        Object {
+          "id": "74-ty",
+        },
       ]
     }
   />

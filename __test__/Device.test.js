@@ -5,8 +5,10 @@ import { shallow } from 'enzyme';
 describe('Device', () => {
   let wrapper;
   const mockProps = {
-    history: jest.fn(),
-    zones: [{}, {}],
+    history: {
+      goBack: jest.fn()
+    },
+    zones: [{ id: '83-b' }, { id: '74-ty' }],
     id: '58493-a',
     name: 'avenger-7-fold'
   };
@@ -55,6 +57,14 @@ describe('Device', () => {
     wrapper.instance().selectZone(mockId);
     expect(wrapper.state().selectedZones.length).toEqual(0);
   })
-
-
+  it('componentDidMount should set state with zone ids', async () => {
+    const spy = await jest.spyOn(wrapper.instance(), 'setState');
+    wrapper.instance().componentDidMount();
+    await wrapper.update();
+    expect(spy).toHaveBeenCalledWith({ zoneIdList: ['83-b', '74-ty'] });
+  })
+  it('back button should call history.goBack', () => {
+    wrapper.find('.back-button').simulate('click');
+    expect(mockProps.history.goBack).toHaveBeenCalled();
+  })
 })
