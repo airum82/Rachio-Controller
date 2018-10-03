@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ZonesContainer should match snapshot upon render 1`] = `
+<div
+  className="zones-container"
+>
+  <Zone
+    key="0"
+    selectZone={[MockFunction]}
+  />
+  <Zone
+    key="1"
+    selectZone={[MockFunction]}
+  />
+</div>
+`;
