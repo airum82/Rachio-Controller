@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1538599998459" clover="3.2.0">
-  <project timestamp="1538599998459" name="All files">
-    <metrics statements="68" coveredstatements="57" conditionals="12" coveredconditionals="12" methods="44" coveredmethods="35" elements="124" coveredelements="104" complexity="0" loc="68" ncloc="68" packages="3" files="8" classes="8">
+<coverage generated="1538600765763" clover="3.2.0">
+  <project timestamp="1538600765763" name="All files">
+    <metrics statements="68" coveredstatements="63" conditionals="12" coveredconditionals="12" methods="44" coveredmethods="39" elements="124" coveredelements="114" complexity="0" loc="68" ncloc="68" packages="3" files="8" classes="8">
       <package name="rachio">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="APIkey.js" path="/Users/arram/code-challenges/rachio/APIkey.js">
@@ -13,11 +13,11 @@
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="setupEnzyme.js" path="/Users/arram/code-challenges/rachio/__test__/setup/setupEnzyme.js">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="4" count="5" type="stmt"/>
+          <line num="4" count="6" type="stmt"/>
         </file>
       </package>
       <package name="rachio.app">
-        <metrics statements="66" coveredstatements="55" conditionals="12" coveredconditionals="12" methods="44" coveredmethods="35"/>
+        <metrics statements="66" coveredstatements="61" conditionals="12" coveredconditionals="12" methods="44" coveredmethods="39"/>
         <file name="App.js" path="/Users/arram/code-challenges/rachio/app/App.js">
           <metrics statements="13" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="11" coveredmethods="10"/>
           <line num="11" count="11" type="stmt"/>
@@ -35,13 +35,13 @@
           <line num="58" count="0" type="stmt"/>
         </file>
         <file name="ControlForm.js" path="/Users/arram/code-challenges/rachio/app/ControlForm.js">
-          <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
-          <line num="5" count="0" type="stmt"/>
-          <line num="6" count="0" type="stmt"/>
-          <line num="13" count="0" type="stmt"/>
-          <line num="17" count="0" type="stmt"/>
-          <line num="23" count="0" type="stmt"/>
-          <line num="27" count="0" type="stmt"/>
+          <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
+          <line num="5" count="3" type="stmt"/>
+          <line num="6" count="3" type="stmt"/>
+          <line num="13" count="3" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="23" count="4" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
           <line num="30" count="0" type="stmt"/>
         </file>
         <file name="Device.js" path="/Users/arram/code-challenges/rachio/app/Device.js">

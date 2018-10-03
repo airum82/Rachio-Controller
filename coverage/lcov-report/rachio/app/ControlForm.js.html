@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/7</span>
+        <span class='fraction'>6/7</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,18 +30,18 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">80% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>4/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/7</span>
+        <span class='fraction'>6/7</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -84,29 +84,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -120,30 +120,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
 &nbsp;
 class ControlForm extends Component {
-<span class="fstat-no" title="function not covered" >  co</span>nstructor() {
-<span class="cstat-no" title="statement not covered" >    super()</span>
-<span class="cstat-no" title="statement not covered" >    this.state = {</span>
+  constructor() {
+    super()
+    this.state = {
       sortOrder: [],
       zones: [],
       type: '',
       duration: '0',
       zoneId: ''
     }
-<span class="cstat-no" title="statement not covered" >    this.handleChange = this.handleChange.bind(this);</span>
+    this.handleChange = this.handleChange.bind(this);
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  ha</span>ndleChange(e) {
-<span class="cstat-no" title="statement not covered" >    this.setState({</span>
+  handleChange(e) {
+    this.setState({
       [e.target.name] : e.target.value
     })
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  re</span>nder() {
-<span class="cstat-no" title="statement not covered" >    return (</span>
+  render() {
+    return (
       &lt;div className="form"&gt;
         &lt;h2&gt;duration:&lt;/h2&gt;
         &lt;form 
-          onSubmit={<span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; <span class="cstat-no" title="statement not covered" >this.props.runAllZones(this.state.duration, event)}</span>
+          onSubmit={(event) =&gt; this.props.runAllZones(this.state.duration, event)}
           className="control-form"
         &gt;
           &lt;input type="text" name="duration" onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >this.handleChange(e)}</span>/&gt;
@@ -160,7 +160,7 @@ export default ControlForm;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 03 2018 14:53:18 GMT-0600 (MDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 03 2018 15:06:05 GMT-0600 (MDT)
 </div>
 </div>
 <script src="../../prettify.js"></script>
