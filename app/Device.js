@@ -8,7 +8,8 @@ class Device extends Component {
     super();
     this.state = {
       selectedZones: [],
-      zoneIdList: []
+      zoneIdList: [],
+      error: ''
     }
     this.runAllZones = this.runAllZones.bind(this);
     this.selectZone = this.selectZone.bind(this);
@@ -25,8 +26,7 @@ class Device extends Component {
         }
       })
     }
-    console.log(body)
-    fetch("https://api.rach.io/1/public/zone/start_multiple", {
+    return fetch("https://api.rach.io/1/public/zone/start_multiple", {
       method: 'PUT',
       headers: {
         'Content-Type' : 'application/json',
@@ -36,7 +36,7 @@ class Device extends Component {
     })
     .then(response => response.text())
     .then(result => console.log(result))
-    .catch(error => console.log(error.message))
+    .catch(error => this.setState({ error: error.message }))
   }
 
   selectZone(id) {

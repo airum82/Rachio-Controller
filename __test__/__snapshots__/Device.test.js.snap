@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Device should match snapshot upon initial render 1`] = `
+<div
+  className="device"
+  id="58493-a"
+>
+  <h2
+    className="device-title"
+  >
+    avenger-7-fold
+  </h2>
+  <button
+    className="back-button"
+  >
+    back
+  </button>
+  <ControlForm
+    runAllZones={[Function]}
+  />
+  <ZonesContainer
+    selectZone={[Function]}
+    zones={
+      Array [
+        Object {},
+        Object {},
+      ]
+    }
+  />
+</div>
+`;

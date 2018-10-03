@@ -11,12 +11,13 @@ export class App extends Component {
     super()
     this.state = {
       userInfo: {},
-      isLoading: true
+      isLoading: true,
+      error: ''
     }
   }
 
   retrievePersonInfo(id) {
-    fetch(`https://api.rach.io/1/public/person/${id}`, {
+    return fetch(`https://api.rach.io/1/public/person/${id}`, {
       headers: {
         'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json'
@@ -24,7 +25,7 @@ export class App extends Component {
     })
       .then(response => response.json())
       .then(result => this.setState({ userInfo: result, isLoading: false }))
-      .then(error => console.log(error))
+      .catch(error => this.setState({ error: error.message }))
   }
 
   componentDidMount() {
@@ -36,7 +37,7 @@ export class App extends Component {
     })
       .then(response => response.json())
       .then(result => this.retrievePersonInfo(result.id))
-      .catch(error => console.log(error))
+      .catch(error => this.setState({ error: error.message }))
   }
 
   render() {

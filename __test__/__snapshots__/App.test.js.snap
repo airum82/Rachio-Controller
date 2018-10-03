@@ -19,3 +19,25 @@ exports[`App should match snapshot upon initial render 1`] = `
   </div>
 </div>
 `;
+
+exports[`App should match snapshot when isLoading is set to false 1`] = `
+<div
+  className="main"
+>
+  <div
+    className="main-display"
+  >
+    <h1
+      className="title"
+    >
+      Hello 
+    </h1>
+    <Route
+      exact={true}
+      path="/"
+      render={[Function]}
+    />
+    <DevicesContainer />
+  </div>
+</div>
+`;

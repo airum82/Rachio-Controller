@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DevicesContainer should match snapshot upon initial render 1`] = `
+<div
+  className="devices-container"
+>
+  <div
+    className="devices"
+    key="0"
+  >
+    <Route
+      exact={true}
+      path="/"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      path="/undefined"
+      render={[Function]}
+    />
+  </div>
+  <div
+    className="devices"
+    key="1"
+  >
+    <Route
+      exact={true}
+      path="/"
+      render={[Function]}
+    />
+    <Route
+      exact={true}
+      path="/undefined"
+      render={[Function]}
+    />
+  </div>
+</div>
+`;
