@@ -13,6 +13,7 @@ const ZonesContainer = ({ zones, selectZone }) => {
             key={index}
             image={zone.imageUrl}
             selectZone={selectZone}
+            enabled={zone.enabled}
           />
         )
       })}

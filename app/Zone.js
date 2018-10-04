@@ -15,6 +15,7 @@ class Zone extends Component {
     this.startZone = this.startZone.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.grabSortOrder = this.grabSortOrder.bind(this);
   }
 
   toggleForm() {
@@ -28,8 +29,12 @@ class Zone extends Component {
   }
 
   handleSelect() {
-    this.props.selectZone(this.props.id)
     this.setState({ selected: !this.state.selected })
+  }
+
+  grabSortOrder(event) {
+    const { value } = event.target || 0;
+    this.props.selectZone(this.props.id, value);
   }
 
   startZone(event) {
@@ -55,7 +60,9 @@ class Zone extends Component {
   render() {
     return (
       <div className="zone" id={this.props.id}>
-        <h3 className="zone-title">{this.props.name}</h3>
+        <h3 className="zone-title">
+          {`${this.props.name}${this.props.enabled ? ': enabled' : ': disabled'}`}
+        </h3>
         <img 
           className={this.state.selected ? 'selected' : ''}
           onClick={this.handleSelect}
@@ -84,6 +91,13 @@ class Zone extends Component {
         <input name="duration" type="text" onChange={this.handleInput}/>
         <button>start</button>
        </form>
+
+        {this.state.selected ?
+            <div>
+              <p>order:</p>
+              <input name="sortOrder" type="text" onChange={this.grabSortOrder}/>
+            </div> : ''      
+        }
       </div>
     )
   }

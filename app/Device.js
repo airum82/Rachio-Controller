@@ -25,11 +25,11 @@ class Device extends Component {
       source = this.state.zoneIdList
     }
     const body = {
-      zones: source.map((id, index) => {
+      zones: source.map((zone, index) => {
         return {
-          id,
+          id: zone.id || zone,
           duration: parseInt(duration),
-          sortOrder: index
+          sortOrder: parseInt(zone.sortOrder) || index
         }
       })
     }
@@ -46,19 +46,19 @@ class Device extends Component {
     .catch(error => this.setState({ error: error.message }))
   }
 
-  selectZone(id) {
+  selectZone(id, sortOrder) {
     const isSelected = this.state.selectedZones.some(zone => {
-      return zone === id
+      return zone.id === id
     })
     if(isSelected) {
       this.setState({
         selectedZones: this.state.selectedZones.filter(zone => {
-          return zone !== id
+          return zone.id !== id
         })
       })
     } else {
       this.setState({ 
-        selectedZones: [...this.state.selectedZones, id]
+        selectedZones: [...this.state.selectedZones, { id, sortOrder }]
       })
     }
   }
