@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { apiKey } from '../APIkey';
+import PropTypes from 'prop-types';
 
 class Zone extends Component {
   constructor() {
@@ -89,3 +90,10 @@ class Zone extends Component {
 }
 
 export default Zone;
+
+Zone.propTypes = {
+  name: PropTypes.string,
+  id: PropTypes.string,
+  image: PropTypes.string,
+  selectZone: PropTypes.func
+}

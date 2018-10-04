@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class ControlForm extends Component {
   constructor() {
@@ -36,3 +37,7 @@ class ControlForm extends Component {
 }
 
 export default ControlForm;
+
+ControlForm.propTypes = {
+  runAllZones: PropTypes.func
+}

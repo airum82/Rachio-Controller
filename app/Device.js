@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ZonesContainer from './ZonesContainer'
 import { apiKey } from '../APIkey';
 import ControlForm from './ControlForm';
+import PropTypes from 'prop-types';
 
 class Device extends Component {
   constructor() {
@@ -85,3 +86,10 @@ class Device extends Component {
 }
 
 export default Device
+
+Device.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  zones: PropTypes.array,
+  history: PropTypes.object
+}
