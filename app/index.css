@@ -106,10 +106,8 @@ body {
   font-size: 1em;
 }
 
-.zone-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.zone-buttons button {
+  margin: 2%;
 }
 
 .selected {
