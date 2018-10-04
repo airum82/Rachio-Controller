@@ -88,14 +88,19 @@ class Zone extends Component {
         onSubmit={this.startZone}
        >
         <h4>duration</h4>
-        <input className="sort-order" name="duration" type="text" onChange={this.handleInput}/>
+        <input className="duration-input" name="duration" type="text" onChange={this.handleInput}/>
         <button>start</button>
        </form>
 
         {this.state.selected ?
             <div>
               <p>order:</p>
-              <input name="sortOrder" type="text" onChange={this.grabSortOrder}/>
+              <input
+                className="sort-order"
+                name="sortOrder" 
+                type="text" 
+                onChange={this.grabSortOrder}
+              />
             </div> : ''      
         }
       </div>

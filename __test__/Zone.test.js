@@ -108,18 +108,30 @@ describe('Zone', () => {
   })
   it('input field should call handleInput on change', () => {
     const spy = jest.spyOn(wrapper.instance(), 'handleInput');
-    wrapper.find('input').simulate('change', {
+    wrapper.find('.duration-input').simulate('change', {
       target: {
         name:'jenny',
         value: 'hey'
       }
     })
-    wrapper.find('input').simulate('change', {
+    wrapper.find('.duration-input').simulate('change', {
       target: {
         name: 'jenny',
         value: 'hey'
       }
     })
     expect(spy).toHaveBeenCalled();
+  })
+  it('sort-order input should call grabSortOrder on change', () => {
+    const spy = jest.spyOn(wrapper.instance(), 'grabSortOrder');
+    wrapper.instance().setState({ selected: true });
+    const mockEvent = {
+      target: {
+        value: '5'
+      }
+    }
+    wrapper.find('.sort-order').simulate('change', mockEvent)
+    wrapper.find('.sort-order').simulate('change', mockEvent)
+    expect(spy).toHaveBeenCalledWith(mockEvent);
   })
 })
