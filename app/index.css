@@ -55,16 +55,15 @@ body {
 .devices-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  align-content: flex-start;
+  align-content: space-between;
   height: 75vh;
   margin: 0 auto;
   width: 95%;
 }
 
 .devices {
-  margin: 2%;
   background-color: #42F2F7;
 }
 
@@ -157,10 +156,11 @@ button {
   }
 
   .devices-container {
-    align-content: center;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    height: initial;
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;
+    grid-row-gap: 10px;
+    margin: 50px auto;
   }
 
   .device-link {
