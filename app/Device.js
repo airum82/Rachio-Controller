@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ZonesContainer from './ZonesContainer'
 import { apiKey } from '../APIkey';
 import ControlForm from './ControlForm';
+import PropTypes from 'prop-types';
 
 class Device extends Component {
   constructor() {
@@ -10,19 +11,25 @@ class Device extends Component {
       selectedZones: [],
       zoneIdList: [],
       error: ''
-    }
-    this.runAllZones = this.runAllZones.bind(this);
+    };
+    this.runZones = this.runZones.bind(this);
     this.selectZone = this.selectZone.bind(this);
   }
 
-  runAllZones(duration, event) {
+  runZones(duration, event) {
     event.preventDefault()
+    let source;
+    if(this.state.selectedZones.length) {
+      source = this.state.selectedZones
+    } else {
+      source = this.state.zoneIdList
+    }
     const body = {
-      zones: this.state.zoneIdList.map((id, index) => {
+      zones: source.map((zone, index) => {
         return {
-          id,
+          id: zone.id || zone,
           duration: parseInt(duration),
-          sortOrder: index + 1
+          sortOrder: parseInt(zone.sortOrder) || index
         }
       })
     }
@@ -39,19 +46,19 @@ class Device extends Component {
     .catch(error => this.setState({ error: error.message }))
   }
 
-  selectZone(id) {
+  selectZone(id, sortOrder) {
     const isSelected = this.state.selectedZones.some(zone => {
-      return zone === id
+      return zone.id === id
     })
     if(isSelected) {
       this.setState({
         selectedZones: this.state.selectedZones.filter(zone => {
-          return zone !== id
+          return zone.id !== id
         })
       })
     } else {
       this.setState({ 
-        selectedZones: [...this.state.selectedZones, id]
+        selectedZones: [...this.state.selectedZones, { id, sortOrder }]
       })
     }
   }
@@ -74,7 +81,7 @@ class Device extends Component {
         >
           back
         </button>
-        <ControlForm runAllZones={this.runAllZones}/>
+        <ControlForm runZones={this.runZones}/>
         <ZonesContainer 
           zones={this.props.zones}
           selectZone={this.selectZone}
@@ -85,3 +92,10 @@ class Device extends Component {
 }
 
 export default Device
+
+Device.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  zones: PropTypes.array,
+  history: PropTypes.object
+}

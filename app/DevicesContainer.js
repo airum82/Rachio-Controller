@@ -1,6 +1,7 @@
 import React from 'react';
 import Device from './Device';
 import { NavLink, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const DevicesContainer = ({ devices }) => {
   return (
@@ -33,3 +34,7 @@ const DevicesContainer = ({ devices }) => {
 }
 
 export default DevicesContainer;
+
+DevicesContainer.propTypes = {
+  devices: PropTypes.array
+}

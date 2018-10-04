@@ -1,5 +1,6 @@
 import React from 'react';
 import Zone from './Zone';
+import PropTypes from 'prop-types';
 
 const ZonesContainer = ({ zones, selectZone }) => {
   return (
@@ -12,6 +13,7 @@ const ZonesContainer = ({ zones, selectZone }) => {
             key={index}
             image={zone.imageUrl}
             selectZone={selectZone}
+            enabled={zone.enabled}
           />
         )
       })}
@@ -20,3 +22,8 @@ const ZonesContainer = ({ zones, selectZone }) => {
 }
 
 export default ZonesContainer;
+
+ZonesContainer.propTypes = {
+  zones: PropTypes.array,
+  selectZone: PropTypes.func
+}

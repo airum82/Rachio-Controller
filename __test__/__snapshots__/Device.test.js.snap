@@ -17,7 +17,7 @@ exports[`Device should match snapshot upon initial render 1`] = `
     back
   </button>
   <ControlForm
-    runAllZones={[Function]}
+    runZones={[Function]}
   />
   <ZonesContainer
     selectZone={[Function]}

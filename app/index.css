@@ -55,16 +55,15 @@ body {
 .devices-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  align-content: flex-start;
+  align-content: space-between;
   height: 75vh;
-  margin: 8% auto;
+  margin: 0 auto;
   width: 95%;
 }
 
 .devices {
-  margin: 2%;
   background-color: #42F2F7;
 }
 
@@ -107,10 +106,8 @@ body {
   font-size: 1em;
 }
 
-.zone-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.zone-buttons button {
+  margin: 2%;
 }
 
 .selected {
@@ -157,17 +154,18 @@ button {
   }
 
   .devices-container {
-    align-content: center;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    height: initial;
-    margin-top: -3%;
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;
+    grid-row-gap: 10px;
+    margin: 50px auto;
   }
 
   .device-link {
     font-size: 1.2em;
     width: 60vw;
     line-height: 5em;
+    margin: 0 auto;
   }
 
   .zones-container {
@@ -176,7 +174,15 @@ button {
   }
 
   .devices {
-    width: 75%;
+    width: inherit;
+  }
+
+}
+
+@media only screen and (max-width: 700px) {
+
+  .zone-buttons button {
+    padding: 2%;
   }
 
 }
@@ -186,7 +192,6 @@ button {
   .devices-container {
     align-content: flex-start;
     height: 90vh;
-    margin-top: 28%;
   }
 
   .form {
@@ -194,16 +199,24 @@ button {
     margin: 0 auto;
   }
 
+  .devices-container {
+    margin-top: 25%;
+  }
+
 }
 
 @media only screen and (max-width: 440px) {
 
-  .devices-container {
-    margin-top: 4%;
-  }
-
   .devices {
     width: 85%;
+  }
+
+}
+
+@media only screen and (max-width: 400px) {
+
+  .device-link {
+    font-size: 1em;
   }
 
 }

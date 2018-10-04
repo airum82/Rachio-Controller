@@ -43,9 +43,14 @@ describe('Zone', () => {
     wrapper.instance().handleSelect();
     expect(!wrapper.state().selected).toEqual(initialValue)
   })
-  it('handle select should call selectZone with correct params', () => {
-    wrapper.instance().handleSelect();
-    expect(mockProps.selectZone).toHaveBeenCalledWith(mockProps.id);
+  it('grabSortOrder should call selectZone with correct params', () => {
+    const mockEvent = {
+      target: {
+        value: '5'
+      }
+    }
+    wrapper.instance().grabSortOrder(mockEvent);
+    expect(mockProps.selectZone).toHaveBeenCalledWith(mockProps.id, mockEvent.target.value);
   })
   it('startZone should call fetch', () => {
     const mockEvent = {
@@ -103,18 +108,30 @@ describe('Zone', () => {
   })
   it('input field should call handleInput on change', () => {
     const spy = jest.spyOn(wrapper.instance(), 'handleInput');
-    wrapper.find('input').simulate('change', {
+    wrapper.find('.duration-input').simulate('change', {
       target: {
         name:'jenny',
         value: 'hey'
       }
     })
-    wrapper.find('input').simulate('change', {
+    wrapper.find('.duration-input').simulate('change', {
       target: {
         name: 'jenny',
         value: 'hey'
       }
     })
     expect(spy).toHaveBeenCalled();
+  })
+  it('sort-order input should call grabSortOrder on change', () => {
+    const spy = jest.spyOn(wrapper.instance(), 'grabSortOrder');
+    wrapper.instance().setState({ selected: true });
+    const mockEvent = {
+      target: {
+        value: '5'
+      }
+    }
+    wrapper.find('.sort-order').simulate('change', mockEvent)
+    wrapper.find('.sort-order').simulate('change', mockEvent)
+    expect(spy).toHaveBeenCalledWith(mockEvent);
   })
 })

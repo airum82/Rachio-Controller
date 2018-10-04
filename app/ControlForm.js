@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class ControlForm extends Component {
   constructor() {
@@ -22,17 +23,23 @@ class ControlForm extends Component {
   render() {
     return (
       <div className="form">
-        <h2>duration:</h2>
+        <h2>run zones</h2>
+        <h3>duration:</h3>
         <form 
-          onSubmit={(event) => this.props.runAllZones(this.state.duration, event)}
+          onSubmit={(event) => this.props.runZones(this.state.duration, event)}
           className="control-form"
         >
           <input type="text" name="duration" onChange={(e) => this.handleChange(e)}/>
-          <button>run all zones</button>
+          <button>run zones</button>
         </form>
+        <p>(This will run all zones if no zones are selected)</p>
       </div>
     )
   }
 }
 
 export default ControlForm;
+
+ControlForm.propTypes = {
+  runZones: PropTypes.func
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { apiKey } from '../APIkey';
+import PropTypes from 'prop-types';
 
 class Zone extends Component {
   constructor() {
@@ -14,6 +15,7 @@ class Zone extends Component {
     this.startZone = this.startZone.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.grabSortOrder = this.grabSortOrder.bind(this);
   }
 
   toggleForm() {
@@ -27,8 +29,12 @@ class Zone extends Component {
   }
 
   handleSelect() {
-    this.props.selectZone(this.props.id)
     this.setState({ selected: !this.state.selected })
+  }
+
+  grabSortOrder(event) {
+    const { value } = event.target || 0;
+    this.props.selectZone(this.props.id, value);
   }
 
   startZone(event) {
@@ -54,7 +60,9 @@ class Zone extends Component {
   render() {
     return (
       <div className="zone" id={this.props.id}>
-        <h3 className="zone-title">{this.props.name}</h3>
+        <h3 className="zone-title">
+          {`${this.props.name}${this.props.enabled ? ': enabled' : ': disabled'}`}
+        </h3>
         <img 
           className={this.state.selected ? 'selected' : ''}
           onClick={this.handleSelect}
@@ -80,12 +88,31 @@ class Zone extends Component {
         onSubmit={this.startZone}
        >
         <h4>duration</h4>
-        <input name="duration" type="text" onChange={this.handleInput}/>
+        <input className="duration-input" name="duration" type="text" onChange={this.handleInput}/>
         <button>start</button>
        </form>
+
+        {this.state.selected ?
+            <div>
+              <p>order:</p>
+              <input
+                className="sort-order"
+                name="sortOrder" 
+                type="text" 
+                onChange={this.grabSortOrder}
+              />
+            </div> : ''      
+        }
       </div>
     )
   }
 }
 
 export default Zone;
+
+Zone.propTypes = {
+  name: PropTypes.string,
+  id: PropTypes.number,
+  image: PropTypes.string,
+  selectZone: PropTypes.func
+}
