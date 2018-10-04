@@ -24,5 +24,5 @@ export default ZonesContainer;
 
 ZonesContainer.propTypes = {
   zones: PropTypes.array,
-  selectZone: propTypes.func
+  selectZone: PropTypes.func
 }
