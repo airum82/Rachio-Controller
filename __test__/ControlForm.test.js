@@ -3,11 +3,11 @@ import ControlForm from '../app/ControlForm';
 import { shallow } from 'enzyme';
 
 describe('ControlForm', () => {
-  const mockRunAllZones = jest.fn();
+  const mockRunZones = jest.fn();
   let wrapper;
   beforeEach(() => {
     wrapper = shallow(<ControlForm
-      runAllZones={mockRunAllZones}
+      runZones={mockRunZones}
     />)
   })
   it('should match snapshot upon render', () => {
@@ -24,12 +24,12 @@ describe('ControlForm', () => {
     wrapper.instance().handleChange(mockEvent);
     expect(spy).toHaveBeenCalledWith({ sarah: 'so much' })
   })
-  it('form should call runAllZones on submit', () => {
+  it('form should call runZones on submit', () => {
     const mockEvent = {
       preventDefault: jest.fn()
     }
     const mockDuration = wrapper.state().duration;
     wrapper.find('form').simulate('submit', mockEvent);
-    expect(mockRunAllZones).toHaveBeenCalledWith(mockDuration, mockEvent);
+    expect(mockRunZones).toHaveBeenCalledWith(mockDuration, mockEvent);
   })
 })

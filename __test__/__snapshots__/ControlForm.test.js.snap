@@ -5,8 +5,11 @@ exports[`ControlForm should match snapshot upon render 1`] = `
   className="form"
 >
   <h2>
-    duration:
+    run zones
   </h2>
+  <h3>
+    duration:
+  </h3>
   <form
     className="control-form"
     onSubmit={[Function]}
@@ -17,8 +20,11 @@ exports[`ControlForm should match snapshot upon render 1`] = `
       type="text"
     />
     <button>
-      run all zones
+      run zones
     </button>
   </form>
+  <p>
+    (This will run all zones if no zones are selected)
+  </p>
 </div>
 `;

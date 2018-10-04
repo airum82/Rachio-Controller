@@ -88,7 +88,7 @@ class Zone extends Component {
         onSubmit={this.startZone}
        >
         <h4>duration</h4>
-        <input name="duration" type="text" onChange={this.handleInput}/>
+        <input className="sort-order" name="duration" type="text" onChange={this.handleInput}/>
         <button>start</button>
        </form>
 
@@ -107,7 +107,7 @@ export default Zone;
 
 Zone.propTypes = {
   name: PropTypes.string,
-  id: PropTypes.string,
+  id: PropTypes.number,
   image: PropTypes.string,
   selectZone: PropTypes.func
 }

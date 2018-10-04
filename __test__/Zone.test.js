@@ -43,9 +43,14 @@ describe('Zone', () => {
     wrapper.instance().handleSelect();
     expect(!wrapper.state().selected).toEqual(initialValue)
   })
-  it('handle select should call selectZone with correct params', () => {
-    wrapper.instance().handleSelect();
-    expect(mockProps.selectZone).toHaveBeenCalledWith(mockProps.id);
+  it('grabSortOrder should call selectZone with correct params', () => {
+    const mockEvent = {
+      target: {
+        value: '5'
+      }
+    }
+    wrapper.instance().grabSortOrder(mockEvent);
+    expect(mockProps.selectZone).toHaveBeenCalledWith(mockProps.id, mockEvent.target.value);
   })
   it('startZone should call fetch', () => {
     const mockEvent = {
