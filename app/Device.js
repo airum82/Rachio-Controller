@@ -30,7 +30,7 @@ class Device extends Component {
       zones: source.map((zone, index) => {
         return {
           id: zone.id || zone,
-          duration: parseInt(duration),
+          duration: parseInt(duration) || 0,
           sortOrder: parseInt(zone.sortOrder) || index
         }
       })

@@ -8,7 +8,7 @@ class ControlForm extends Component {
       sortOrder: [],
       zones: [],
       type: '',
-      duration: '0',
+      duration: '',
       zoneId: ''
     }
     this.handleChange = this.handleChange.bind(this)
@@ -29,8 +29,8 @@ class ControlForm extends Component {
           onSubmit={(event) => this.props.runZones(this.state.duration, event)}
           className="control-form"
         >
-          <input type="text" name="duration" onChange={(e) => this.handleChange(e)}/>
-          <button>run zones</button>
+          <input type="text" value={this.state.duration} name="duration" onChange={(e) => this.handleChange(e)}/>
+          <button onClick={() => this.setState({ duration: '' })}>run zones</button>
         </form>
         <p>(This will run all zones if no zones are selected)</p>
       </div>

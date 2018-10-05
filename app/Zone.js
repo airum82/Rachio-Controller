@@ -7,7 +7,7 @@ class Zone extends Component {
     super()
     this.state = {
       showForm: false,
-      duration: 0,
+      duration: '',
       selected: false,
       error: ''
     }
@@ -105,7 +105,12 @@ class Zone extends Component {
           onSubmit={this.startZone}
         >
           <h4>duration(in seconds):</h4>
-          <input className="duration-input" name="duration" type="text" onChange={this.handleInput}/>
+          <input
+            value={this.state.duration} 
+            className="duration-input" 
+            name="duration" type="text" 
+            onChange={this.handleInput}
+          />
           <button>start</button>
         </form>
         { this.state.error ? <p>{this.state.error}</p> : ''}
