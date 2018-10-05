@@ -56,7 +56,7 @@ class Device extends Component {
           this.setState({ response: '' })
         }, 4000);
     })
-    .catch(error => console.log(error.message))
+    .catch(error => this.setState({ error: error.message }));
   }
 
   selectZone(id) {

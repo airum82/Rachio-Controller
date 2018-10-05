@@ -3,12 +3,12 @@
 exports[`Zone should match snapshot upon initial render 1`] = `
 <div
   className="zone"
-  id={45}
+  id="45-7c"
 >
   <h3
     className="zone-title"
   >
-    zone-4000: disabled
+    zone-4000: enabled
   </h3>
   <img
     alt="picture of this particular zone"

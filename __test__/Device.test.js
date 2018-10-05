@@ -48,11 +48,9 @@ describe('Device', () => {
   })
   it('select zone should add zone to selected zones if not selected', () => {
     const mockId = '596-a';
-    const mockSortOrder = '5'
-    wrapper.instance().selectZone(mockId, mockSortOrder);
+    wrapper.instance().selectZone(mockId);
     expect(wrapper.state().selectedZones[0]).toEqual({
-      id: mockId,
-      sortOrder: mockSortOrder
+      id: mockId
     });
   })
   it('selectZone should remove zone from list if there there', () => {
@@ -60,6 +58,15 @@ describe('Device', () => {
     wrapper.instance().setState({ selectedZones: [{id: '596-a'}] });
     wrapper.instance().selectZone(mockId);
     expect(wrapper.state().selectedZones.length).toEqual(0);
+  })
+  it('addSort order should call set State updated zone list', () => {
+    const mockSelectedZones = [{ id: '76-a'}, { id: '24-b' }];
+    const mockUpdatedZones = [{ id: '76-a', sortOrder: 1}, { id: '24-b' }];
+    wrapper.instance().setState({ selectedZones: mockSelectedZones });
+    const spy = jest.spyOn(wrapper.instance(), 'setState');
+    wrapper.instance().addSortOrder('76-a', 1);
+    expect(spy).toHaveBeenCalledWith({ selectedZones: mockUpdatedZones });
+
   })
   it('componentDidMount should set state with zone ids', async () => {
     const spy = await jest.spyOn(wrapper.instance(), 'setState');

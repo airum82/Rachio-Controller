@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">81.48% </span>
+        <span class="strong">80% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>22/27</span>
+        <span class='fraction'>28/35</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">64.29% </span>
+        <span class="strong">68.75% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>9/14</span>
+        <span class='fraction'>11/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">84.62% </span>
+        <span class="strong">86.67% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>11/13</span>
+        <span class='fraction'>13/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">81.48% </span>
+        <span class="strong">80% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>22/27</span>
+        <span class='fraction'>28/35</span>
       </div>
     </div>
   </div>
@@ -153,7 +153,23 @@
 108
 109
 110
-111</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -161,14 +177,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -198,12 +216,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -227,15 +248,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -275,10 +307,12 @@ class Device extends Component {
     this.state = {
       selectedZones: [],
       zoneIdList: [],
-      error: ''
+      error: '',
+      response: ''
     };
     this.runZones = this.runZones.bind(this);
     this.selectZone = this.selectZone.bind(this);
+    this.addSortOrder = this.addSortOrder.bind(this);
   }
 &nbsp;
   runZones(duration, event) {
@@ -308,18 +342,21 @@ class Device extends Component {
     })
     .then(response =&gt; response.text())
     .then(<span class="fstat-no" title="function not covered" >re</span>sult =&gt; {
+      let response;
 <span class="cstat-no" title="statement not covered" >      if(result) {</span>
-<span class="cstat-no" title="statement not covered" >        this.setState(</span>
-          { error: 'something went wrong, most likely at least one of these zones is not enabled' });
-<span class="cstat-no" title="statement not covered" >          setTimeout(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            this.setState({ error: ''})</span>
-          }, 4000);
+<span class="cstat-no" title="statement not covered" >        response = 'something went wrong, most likely at least one of these zones is not enabled';</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        response = 'these zones were successfully started!';</span>
       }
+<span class="cstat-no" title="statement not covered" >      this.setState({ response });</span>
+<span class="cstat-no" title="statement not covered" >        setTimeout(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          this.setState({ response: '' })</span>
+        }, 4000);
     })
-    .catch(error =&gt; console.log(error.message))
+    .catch(error =&gt; this.setState({ error: error.message }));
   }
 &nbsp;
-  selectZone(id, sortOrder) {
+  selectZone(id) {
     const isSelected = this.state.selectedZones.some(zone =&gt; {
       return zone.id === id
     })
@@ -331,9 +368,19 @@ class Device extends Component {
       })
     } else {
       this.setState({ 
-        selectedZones: [...this.state.selectedZones, { id, sortOrder }]
+        selectedZones: [...this.state.selectedZones, { id }]
       })
     }
+  }
+&nbsp;
+  addSortOrder(id, sortOrder) {
+    const updatedZoneList = this.state.selectedZones.map(zone =&gt; {
+      if(zone.id === id) {
+        return {...zone, sortOrder }
+      }
+        return zone
+    })
+    this.setState({ selectedZones: updatedZoneList });
   }
 &nbsp;
   componentDidMount() {
@@ -355,8 +402,9 @@ class Device extends Component {
           back
         &lt;/button&gt;
         &lt;ControlForm runZones={this.runZones}/&gt;
-        { this.state.error ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;p&gt;{this.state.error}&lt;/p&gt; </span>: ''}
-        &lt;ZonesContainer 
+        { this.state.response ? <span class="branch-0 cbranch-no" title="branch not covered" >&lt;p&gt;{this.state.response}&lt;/p&gt; </span>: ''}
+        &lt;ZonesContainer
+          addSortOrder={this.addSortOrder} 
           zones={this.props.zones}
           selectZone={this.selectZone}
         /&gt;
@@ -379,7 +427,7 @@ Device.propTypes = {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Oct 05 2018 11:06:54 GMT-0600 (MDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Oct 05 2018 12:08:05 GMT-0600 (MDT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

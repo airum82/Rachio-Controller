@@ -6,9 +6,11 @@ describe('Zone', () => {
   let wrapper;
   const mockProps = {
     name: 'zone-4000',
-    id: 45,
+    id: '45-7c',
     selectZone: jest.fn(),
-    image: ''
+    image: '',
+    enabled: true,
+    addSortOrder: jest.fn()
   }
   beforeEach(() => {
     wrapper = shallow(<Zone
@@ -16,15 +18,29 @@ describe('Zone', () => {
       id={mockProps.id}
       selectZone={mockProps.selectZone}
       image={mockProps.image}
+      enabled={mockProps.enabled}
+      addSortOrder={mockProps.addSortOrder}
     />)
   })
   it('should match snapshot upon initial render', () => {
     expect(wrapper).toMatchSnapshot();
   })
-  it('toggleForm should set state with opposite boolean value', () => {
+  it('toggleForm should set state with opposite boolean value if zone is enabled', () => {
     const initialValue = wrapper.state().showForm;
     wrapper.instance().toggleForm();
     expect(!wrapper.state().showForm).toEqual(initialValue);
+  })
+  it('toggle form should call handle disabled if zone is disabled', () => {
+    wrapper = shallow(<Zone
+      name="I'm not working"
+      id="not-me"
+      selectZone={jest.fn()}
+      image={''}
+      enabled={false}
+       />)
+    const spy = jest.spyOn(wrapper.instance(), 'handleDisabled');
+    wrapper.instance().toggleForm();
+    expect(spy).toHaveBeenCalled();
   })
   it('handleInput should set state with value of input', () => {
     wrapper.instance().toggleForm();
@@ -43,14 +59,26 @@ describe('Zone', () => {
     wrapper.instance().handleSelect();
     expect(!wrapper.state().selected).toEqual(initialValue)
   })
-  it('grabSortOrder should call selectZone with correct params', () => {
+  it('handle select should call handleDisabled if zone is disabled', () => {
+    wrapper = shallow(<Zone
+      name="I'm not working"
+      id="not-me"
+      selectZone={jest.fn()}
+      image={''}
+      enabled={false}
+    />)
+    const spy = jest.spyOn(wrapper.instance(), 'handleDisabled');
+    wrapper.instance().handleSelect();
+    expect(spy).toHaveBeenCalled();
+  })
+  it('grabSortOrder should call addSortOrder with correct params', () => {
     const mockEvent = {
       target: {
         value: '5'
       }
     }
     wrapper.instance().grabSortOrder(mockEvent);
-    expect(mockProps.selectZone).toHaveBeenCalledWith(mockProps.id, mockEvent.target.value);
+    expect(mockProps.addSortOrder).toHaveBeenCalledWith(mockProps.id, mockEvent.target.value);
   })
   it('startZone should call fetch', () => {
     const mockEvent = {
