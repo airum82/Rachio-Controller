@@ -10,10 +10,12 @@ class Device extends Component {
     this.state = {
       selectedZones: [],
       zoneIdList: [],
-      error: ''
+      error: '',
+      response: ''
     };
     this.runZones = this.runZones.bind(this);
     this.selectZone = this.selectZone.bind(this);
+    this.addSortOrder = this.addSortOrder.bind(this);
   }
 
   runZones(duration, event) {
@@ -43,18 +45,21 @@ class Device extends Component {
     })
     .then(response => response.text())
     .then(result => {
+      let response;
       if(result) {
-        this.setState(
-          { error: 'something went wrong, most likely at least one of these zones is not enabled' });
-          setTimeout(() => {
-            this.setState({ error: ''})
-          }, 4000);
+        response = 'something went wrong, most likely at least one of these zones is not enabled';
+      } else {
+        response = 'these zones were successfully started!';
       }
+      this.setState({ response });
+        setTimeout(() => {
+          this.setState({ response: '' })
+        }, 4000);
     })
     .catch(error => console.log(error.message))
   }
 
-  selectZone(id, sortOrder) {
+  selectZone(id) {
     const isSelected = this.state.selectedZones.some(zone => {
       return zone.id === id
     })
@@ -66,9 +71,19 @@ class Device extends Component {
       })
     } else {
       this.setState({ 
-        selectedZones: [...this.state.selectedZones, { id, sortOrder }]
+        selectedZones: [...this.state.selectedZones, { id }]
       })
     }
+  }
+
+  addSortOrder(id, sortOrder) {
+    const updatedZoneList = this.state.selectedZones.map(zone => {
+      if(zone.id === id) {
+        return {...zone, sortOrder }
+      }
+        return zone
+    })
+    this.setState({ selectedZones: updatedZoneList });
   }
 
   componentDidMount() {
@@ -90,8 +105,9 @@ class Device extends Component {
           back
         </button>
         <ControlForm runZones={this.runZones}/>
-        { this.state.error ? <p>{this.state.error}</p> : ''}
-        <ZonesContainer 
+        { this.state.response ? <p>{this.state.response}</p> : ''}
+        <ZonesContainer
+          addSortOrder={this.addSortOrder} 
           zones={this.props.zones}
           selectZone={this.selectZone}
         />

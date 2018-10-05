@@ -8,7 +8,7 @@ exports[`ControlForm should match snapshot upon render 1`] = `
     run zones
   </h2>
   <h3>
-    duration:
+    duration(in seconds):
   </h3>
   <form
     className="control-form"

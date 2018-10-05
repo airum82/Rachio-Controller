@@ -37,7 +37,7 @@ exports[`Zone should match snapshot upon initial render 1`] = `
     onSubmit={[Function]}
   >
     <h4>
-      duration
+      duration(in seconds):
     </h4>
     <input
       className="duration-input"

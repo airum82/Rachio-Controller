@@ -36,6 +36,7 @@ class Zone extends Component {
   handleSelect() {
     if(this.props.enabled) {
       this.setState({ selected: !this.state.selected });
+      this.props.selectZone(this.props.id)
     } else {
       this.handleDisabled();
     }
@@ -50,7 +51,7 @@ class Zone extends Component {
 
   grabSortOrder(event) {
     const { value } = event.target || 0;
-    this.props.selectZone(this.props.id, value);
+    this.props.addSortOrder(this.props.id, value);
   }
 
   startZone(event) {
@@ -110,7 +111,7 @@ class Zone extends Component {
         { this.state.error ? <p>{this.state.error}</p> : ''}
         {this.state.selected && this.props.enabled ?
             <div>
-              <p>order(in seconds, you must add this):</p>
+              <p>order(in seconds):</p>
               <input
                 className="sort-order"
                 name="sortOrder" 
