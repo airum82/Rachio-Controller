@@ -87,7 +87,7 @@ class Zone extends Component {
         className={this.state.showForm ? 'zone-form' : 'hidden-form'}
         onSubmit={this.startZone}
        >
-        <h4>duration</h4>
+        <h4>duration(in seconds):</h4>
         <input className="duration-input" name="duration" type="text" onChange={this.handleInput}/>
         <button>start</button>
        </form>
