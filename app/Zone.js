@@ -16,10 +16,15 @@ class Zone extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.grabSortOrder = this.grabSortOrder.bind(this);
+    this.handleDisabled = this.handleDisabled.bind(this);
   }
 
   toggleForm() {
-    this.setState({ showForm: !this.state.showForm });
+    if(this.props.enabled) {
+      this.setState({ showForm: !this.state.showForm });
+    } else {
+      this.handleDisabled();
+    }
   }
 
   handleInput(event) {
@@ -29,7 +34,18 @@ class Zone extends Component {
   }
 
   handleSelect() {
-    this.setState({ selected: !this.state.selected })
+    if(this.props.enabled) {
+      this.setState({ selected: !this.state.selected });
+    } else {
+      this.handleDisabled();
+    }
+  }
+
+  handleDisabled() {
+    this.setState({ error: 'this zone is not currently enabled' });
+    setTimeout(() => {
+      this.setState({ error: '' })
+    }, 4000);
   }
 
   grabSortOrder(event) {
@@ -91,10 +107,10 @@ class Zone extends Component {
         <input className="duration-input" name="duration" type="text" onChange={this.handleInput}/>
         <button>start</button>
        </form>
-
-        {this.state.selected ?
+        { this.state.error ? <p>{this.state.error}</p> : ''}
+        {this.state.selected && this.props.enabled ?
             <div>
-              <p>order:</p>
+              <p>order(in seconds, you must add this):</p>
               <input
                 className="sort-order"
                 name="sortOrder" 
@@ -112,7 +128,7 @@ export default Zone;
 
 Zone.propTypes = {
   name: PropTypes.string,
-  id: PropTypes.number,
+  id: PropTypes.string,
   image: PropTypes.string,
   selectZone: PropTypes.func
 }

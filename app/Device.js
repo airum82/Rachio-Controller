@@ -42,8 +42,16 @@ class Device extends Component {
       body: JSON.stringify(body)
     })
     .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => this.setState({ error: error.message }))
+    .then(result => {
+      if(result) {
+        this.setState(
+          { error: 'something went wrong, most likely at least one of these zones is not enabled' });
+          setTimeout(() => {
+            this.setState({ error: ''})
+          }, 4000);
+      }
+    })
+    .catch(error => console.log(error.message))
   }
 
   selectZone(id, sortOrder) {
@@ -82,6 +90,7 @@ class Device extends Component {
           back
         </button>
         <ControlForm runZones={this.runZones}/>
+        { this.state.error ? <p>{this.state.error}</p> : ''}
         <ZonesContainer 
           zones={this.props.zones}
           selectZone={this.selectZone}
@@ -94,7 +103,7 @@ class Device extends Component {
 export default Device
 
 Device.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.string || PropTypes.number,
   name: PropTypes.string,
   zones: PropTypes.array,
   history: PropTypes.object
