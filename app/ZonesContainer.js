@@ -1,13 +1,13 @@
-import React from 'react';
-import Zone from './Zone';
-import PropTypes from 'prop-types';
+import React from 'react'
+import Zone from './Zone'
+import PropTypes from 'prop-types'
 
 const ZonesContainer = ({ zones, selectZone, addSortOrder }) => {
   return (
     <div className="zones-container">
       { zones.map((zone, index) => {
         return (
-          <Zone 
+          <Zone
             name={zone.name}
             id={zone.id}
             key={index}
@@ -22,7 +22,7 @@ const ZonesContainer = ({ zones, selectZone, addSortOrder }) => {
   )
 }
 
-export default ZonesContainer;
+export default ZonesContainer
 
 ZonesContainer.propTypes = {
   zones: PropTypes.array,

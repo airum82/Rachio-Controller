@@ -7,7 +7,7 @@ import './index.css';
 import 'normalize.css';
 
 export class App extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       userInfo: {},
@@ -16,7 +16,7 @@ export class App extends Component {
     }
   }
 
-  retrievePersonInfo(id) {
+  retrievePersonInfo (id) {
     return fetch(`https://api.rach.io/1/public/person/${id}`, {
       headers: {
         'Authorization': `Bearer ${apiKey}`,
@@ -28,7 +28,7 @@ export class App extends Component {
       .catch(error => this.setState({ error: error.message }))
   }
 
-  componentDidMount() {
+  componentDidMount () {
     fetch('https://api.rach.io/1/public/person/info', {
       headers: {
         'Authorization': `Bearer ${apiKey}`,
@@ -40,7 +40,7 @@ export class App extends Component {
       .catch(error => this.setState({ error: error.message }))
   }
 
-  render() {
+  render () {
     const { devices, fullName } = this.state.userInfo
     return (
       <div className="main">
@@ -49,8 +49,7 @@ export class App extends Component {
             <h1 className="title">Retrieving Devices Now</h1>
             <img src={sprinklers} alt="moving sprinklers to watch while we fetch your content" />
           </div>
-          :
-          <div className="main-display">
+          : <div className="main-display">
             <h1 className="title">Hello {fullName}</h1>
             <Route
               exact path="/"

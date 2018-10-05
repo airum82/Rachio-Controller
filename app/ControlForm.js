@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class ControlForm extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       sortOrder: [],
@@ -11,21 +11,21 @@ class ControlForm extends Component {
       duration: '0',
       zoneId: ''
     }
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(e) {
+  handleChange (e) {
     this.setState({
-      [e.target.name] : e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
-  render() {
+  render () {
     return (
       <div className="form">
         <h2>run zones</h2>
         <h3>duration(in seconds):</h3>
-        <form 
+        <form
           onSubmit={(event) => this.props.runZones(this.state.duration, event)}
           className="control-form"
         >
@@ -38,7 +38,7 @@ class ControlForm extends Component {
   }
 }
 
-export default ControlForm;
+export default ControlForm
 
 ControlForm.propTypes = {
   runZones: PropTypes.func
