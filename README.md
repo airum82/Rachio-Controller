@@ -17,3 +17,4 @@ This project is a UI designed to interact with the rachio api. One needs an api 
 
 <h2>Screenshots:</h2>
 <img src="https://github.com/airum82/side-projects/blob/master/Screen%20Shot%202018-10-04%20at%206.33.30%20PM.png">
+<img src="https://github.com/airum82/side-projects/blob/master/Screen%20Shot%202018-10-04%20at%206.35.32%20PM.png">
